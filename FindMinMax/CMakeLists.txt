@@ -1,19 +1,18 @@
 cmake_minimum_required(VERSION 3.5)
-project(GTestSetup)
+project(FindMinMax)
 
 set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCE_FILES
-        src/main/MyClass.cpp
-        src/main/MyClass.h
-)
+        src/main/algorithms/DivideAndConquerAlgorithm.cpp
+        src/main/algorithms/BruteForceAlgorithm.cpp)
 
-add_executable(GTestSetup src/main/main.cpp ${SOURCE_FILES})
+add_executable(FindMinMax src/main/main.cpp ${SOURCE_FILES})
 
 # Testing flags
 option(BUILD_TESTING "build unit tests" ON)
 
-if(BUILD_TESTING)
+if (BUILD_TESTING)
 
     enable_testing() #Enables testing via command : make test
 
@@ -30,4 +29,4 @@ if(BUILD_TESTING)
     FetchContent_MakeAvailable(googletest)
 
     add_subdirectory(src/test)
-endif()
+endif ()
